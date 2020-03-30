@@ -1,0 +1,33 @@
+html
+    head
+        title Register
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    body.container
+        nav.navbar.navbar-default
+            .container-fluid
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li
+                            a(href='/') Home
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href='/login') Log In
+                        li
+                            a(href='/signup') Sign Up
+                // /.navbar-collapse
+                // /.container-fluid
+        .page-header
+            h1 Register Here!
+        .container.row
+            .jumbotron.col-sm-4.pull-center
+                form(action='/signup', method='post')
+                    div
+                        label Username:
+                        input(type='text', name='username')
+                    div
+                        label Password:
+                        input(type='password', name='password')
+                    div
+                        input.btn.btn-primary(type='submit', value='Sign Up')
+

@@ -1,0 +1,6 @@
+FROM debian:bullseye-slim as build
+
+RUN apt update; apt -y install build-essential
+WORKDIR /opt/build
+
+ENTRYPOINT ["gcc"]

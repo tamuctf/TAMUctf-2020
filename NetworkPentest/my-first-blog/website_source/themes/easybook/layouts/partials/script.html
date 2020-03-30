@@ -1,0 +1,51 @@
+<!-- JQ -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.11.0/dist/jquery.min.js"></script>
+<!-- CORE JS -->
+<script src="{{ "js/easybook.js" | relURL }}"></script>
+<!-- image lazyload js -->
+<script src="{{ "js/lazysizes.min.js" | relURL }}"></script>
+<!-- image box lightgallery -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery-all.min.js"></script>
+<script src="{{ "js/figure.js" | relURL }}"></script>
+
+<!-- Analytics -->
+{{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
+{{ template "_internal/google_analytics_async.html" . }}
+{{- end -}}
+
+{{- with .Site.Params.baiduAnalytics -}}
+<script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function () {
+        if (window.location.hostname === 'localhost') return;
+        var hm = document.createElement("script"); hm.async = true;
+        hm.src = "https://hm.baidu.com/hm.js?{{.}}";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+{{- end }}
+
+<!-- baidu push -->
+{{- if .Site.Params.baiduPush -}}
+<script id="baidu_push">
+    (function () {
+        if (window.location.hostname === 'localhost') return;
+        var bp = document.createElement('script'); bp.async = true;
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+{{- end }}
+
+<!-- custom js -->
+{{ range .Site.Params.customJS -}}
+<script src="{{ "js/" | relURL }}{{ . }}"></script>
+{{ end }}

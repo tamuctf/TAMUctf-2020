@@ -1,0 +1,8 @@
+FROM alpine
+
+RUN apk --no-cache add alpine-sdk
+RUN mkdir -p /opt/build
+
+WORKDIR /opt/build
+
+ENTRYPOINT ["gcc"]

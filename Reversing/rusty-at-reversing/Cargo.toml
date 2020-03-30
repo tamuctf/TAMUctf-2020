@@ -1,0 +1,15 @@
+[package]
+name = "rusty-at-reversing"
+version = "0.1.0"
+authors = ["Addison Crump <addisoncrump@tamu.edu>"]
+edition = "2018"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 0
+codegen-units = 1
+
+[lib]
+crate-type = ["cdylib"]

@@ -1,0 +1,90 @@
+html
+  head
+    title Store
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+  body.container
+    nav.navbar.navbar-default
+      .container-fluid
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/') Home
+            li
+              a(href='/store') Store
+            li
+              a(href='/inventory') Inventory
+            li
+              a(href='/gift') Gift
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/logout') Log Out
+        // /.navbar-collapse
+        // /.container-fluid
+    .page-header
+      h1 Credit System
+    .container.row
+      h1 Hi, Welcome to your Store
+      h2
+        | Credits: 
+        span#numcredits #{num_credits} 
+        button#generate Generate credit!
+    .container.row
+      | Cat: 
+      button#cat.store 10 Credits
+      br
+      |  Haiku: 
+      button#haiku.store 50 Credits
+      br
+      |  Helicopter: 
+      button#helicopter.store 1000 Credits
+      br
+      |  Flag: 
+      button#flag.store 2000000000 Credits
+      br
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script.
+      function changeCreditDom(message) {
+      document.getElementById("numcredits").innerHTML = message;
+      return;
+      }
+      $("#generate").click(function() {
+      $.ajax({
+      url: '/newcredit',
+      method: 'POST'
+      }).done(function(data) {
+      if (data.success) {
+      changeCreditDom(data.message);
+      return;
+      }
+      else {
+      alert(data.message);
+      }
+      }).fail(function() {
+      console.log('failed...');
+      return;
+      });
+      });
+      $("button.store").click(function() {
+      var thisId = $(this).attr('id');
+      $.ajax({
+      url: '/purchase',
+      method: 'POST',
+      data: {
+      item: thisId
+      }
+      }).done(function(data) {
+      if (data.success) {
+      changeCreditDom(data.remaining_credits);
+      alert(data.message);
+      return;
+      }
+      else {
+      alert(data.message);
+      }
+      }).fail(function() {
+      console.log('failed...');
+      return;
+      });
+      });
+

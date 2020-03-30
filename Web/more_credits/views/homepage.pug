@@ -1,0 +1,36 @@
+html
+    head
+        title Credits!
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    body.container
+        nav.navbar.navbar-default
+            .container-fluid
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li
+                            a(href='/') Home
+                        if authorized
+                            li
+                                a(href='/store') Store
+                            li
+                                a(href='/inventory') Inventory
+                            li
+                                a(href='/gift') Gift
+                    ul.nav.navbar-nav.navbar-right
+                        unless authorized
+                            li
+                                a(href='/login') Log In
+                            li
+                                a(href='/signup') Sign Up
+                        if authorized
+                            li
+                                a(href='/logout') Log Out
+                // /.navbar-collapse
+                // /.container-fluid
+        .page-header
+            if username
+              h1 Howdy #{username}!
+            else
+              h1 Howdy!
+            h3 How are you doing today?

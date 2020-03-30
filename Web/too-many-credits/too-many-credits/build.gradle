@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.1.RELEASE")
+    }
+}
+apply plugin: 'spring-boot'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+group = 'com.credits.credits'
+version = '1.0.0-SNAPSHOT'
+sourceCompatibility = '1.7'
+
+repositories {
+    mavenCentral()
+}
+
+springBoot {
+    applyExcludeRules=false
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+}

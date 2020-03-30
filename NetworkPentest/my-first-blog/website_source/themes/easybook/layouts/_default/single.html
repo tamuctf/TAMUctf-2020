@@ -1,0 +1,17 @@
+{{ define "content" -}}
+<div class="post">
+    <!-- post -->
+    <header class="post-header">
+        <h1 class="post-title">{{ title .Title}}</h1>
+    </header>
+    <article class="post-content">
+        {{ $reAltIn := "<img src=\"([^\"]+)\" alt=\"([^\"]+)?\" />" }}
+        {{ $reAltOut := "<figure><img src=\"/images/lazy.gif\" data-sizes=\"auto\" data-src=\"$1\" alt=\"$2\" class=\"lazyload\"></figure>" }}
+        {{ $altContent := .Content | replaceRE $reAltIn $reAltOut | safeHTML }}
+        {{ $reAltTitleIn := "<img src=\"([^\"]+)\" alt=\"([^\"]+)?\" title=\"([^\"]+)?\" />" }}
+        {{ $reAltTitleOut :=  "<figure><img src=\"/images/lazy.gif\" data-src=\"$1\" data-sizes=\"auto\" alt=\"$2\" title=\"$3\" class=\"lazyload\"></figure>" }}
+        {{ $finalContent := $altContent | replaceRE $reAltTitleIn $reAltTitleOut | safeHTML }}
+        {{ $finalContent }}
+    </article>
+</div>
+{{- end }}

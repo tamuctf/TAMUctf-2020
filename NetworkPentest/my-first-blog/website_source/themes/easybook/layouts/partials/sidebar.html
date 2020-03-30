@@ -1,0 +1,27 @@
+<div class="col-box col-box-author">
+    <img class="avatar" src="{{ .Site.Params.avatar }}" alt="{{ .Site.Params.author }}">
+    <div class="col-box-title name">{{ .Site.Params.author }}</div>
+    <p>{{ .Site.Params.whoami }}</p>
+    <p class="contact">
+        {{- range $name, $path := .Site.Params.social }}
+        {{- if $path }}
+        <a href="{{ $path | safeURL }}">{{ title $name }}</a>
+        {{- end }}
+        {{- end }}
+    </p>
+</div>
+
+<div class="col-box">
+    <div class="col-box-title">Newest Posts</div>
+    <ul class="post-list">
+        {{ range first 15 .Site.RegularPages }}
+        <li>
+            <a href="{{ .Permalink }}" class="post-link">{{ title .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+
+<div class="col-box post-toc hide">
+    <div class="col-box-title">TOC</div>
+</div>

@@ -1,0 +1,14 @@
+[package]
+name = "just-bc"
+version = "0.1.0"
+authors = ["Addison Crump <addisoncrump@tamu.edu>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "0.2.0", features = ["dns", "io-util", "macros", "rt-threaded", "tcp"] }
+
+[[bin]]
+name = "just-bc"
+path = "src/main.rs"

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    <div class="header-placeholder"></div>
+    {{/*  header  */}}
+    <header class="header">
+        {{ partial "header.html" . }}
+    </header>
+
+    {{/*  body  */}}
+    <div class="page-content">
+        <div class="wrapper">
+            {{/*  posts  */}}
+            <div class="col-main">
+                {{ block "content" . }}{{ end }}
+            </div>
+            {{/*  sidebar  */}}
+            <div class="col-second">
+                {{ partial "sidebar.html" . }}
+            </div>
+        </div>
+    </div>
+    {{/*  footer  */}}
+    <footer class="footer">
+        {{ partial "footer.html" . }}
+    </footer>
+    {{/*  script  */}}
+    {{ partial "script.html" . }}
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+[package]
+name = "splatter-calc"
+version = "0.1.0"
+authors = ["Addison Crump <addisoncrump@tamu.edu>"]
+edition = "2018"
+
+[dependencies]
+randomize = "3.0.0"

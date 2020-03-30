@@ -1,0 +1,23 @@
+{{- define "content" }}
+<div class="home">
+    <h1 class="page-heading">Category</h1>
+    <div class="tags">
+        <ol>
+            {{ range $key,$value := .Site.Taxonomies.categories }}
+            <a href="#{{upper $key}}">{{ upper $key }}[{{ len $value }}]</a>
+            {{ end }}
+        </ol>
+    </div>
+    <ul class="post-list">
+        {{/*  {{  range $key,$value := .Site.Taxonomies.tags }} */}}
+        {{ range $key,$value := .Site.Taxonomies.categories }}
+        <h2 class="category" id="{{ upper $key }}">{{ upper $key }}</h2>
+        <ul>
+            {{ range $value }}
+            <li><span>{{ .Date.Format "Jan 02" }}</span> » <a href="{{ .Permalink }}">{{ title .Title }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </ul>
+</div>
+{{- end }}

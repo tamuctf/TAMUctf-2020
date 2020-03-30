@@ -1,0 +1,21 @@
+{{ $prev := .PrevInSection }}
+{{ $next := .NextInSection }}
+
+{{ if or $prev $next }}
+<ul class="prevnext">
+    {{ if $prev }}
+    <li>上一篇：
+        <a href="{{ $prev.Permalink }}">
+            {{ title $prev.Title }}
+        </a>
+    </li>
+    {{ end }}
+    {{ if $next }}
+    <li>下一篇：
+        <a href="{{ $next.Permalink }}">
+            {{ title $next.Title }}
+        </a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}

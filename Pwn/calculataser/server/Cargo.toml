@@ -1,0 +1,8 @@
+[package]
+name = "calculataser_server"
+version = "0.1.0"
+authors = ["Addison Crump <addisoncrump@tamu.edu>"]
+edition = "2018"
+
+[dependencies]
+ws = "0.9.0"

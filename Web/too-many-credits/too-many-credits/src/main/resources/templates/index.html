@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+
+    <title>Java Credits</title>
+</head>
+
+<body>
+
+<main role="main">
+
+    <form>
+        <h2>
+            <span th:text="'You have ' + ${count} + ' credits.'"></span>
+            <span th:text="${won} ? ' gigem{l0rdy_th15_1s_mAny_cr3d1ts}' : ' You haven\'t won yet...'"></span>
+        </h2>
+        <button type="submit">Get More</button>
+    </form>
+
+</main>
+</body>
+</html>

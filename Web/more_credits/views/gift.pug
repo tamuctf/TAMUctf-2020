@@ -1,0 +1,42 @@
+html
+  head
+    title Gifting
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+  body.container
+    nav.navbar.navbar-default
+      .container-fluid
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/') Home
+            li
+              a(href='/store') Store
+            li
+              a(href='/inventory') Inventory
+            li
+              a(href='/gift') Gift
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/logout') Log Out
+        // /.navbar-collapse
+        // /.container-fluid
+    .page-header
+      h1 Credit Gifting System
+    .container.row
+      h2 Send others credits and view the credits that you have received.
+      form(method='POST' action='/gift')
+        div.form-group
+          label(for='username') To User:
+          input#name.form-control(type='text', placeholder='Username', name='username', required)
+        div.form-group
+          label(for='credits') Number of Credits to Send:
+          input#name.form-control(type='number', placeholder='Credit Amount', name='credits', required)
+        div.form-group
+          label(for='message') Message:
+          input#name.form-control(type='text', placeholder='Message Body', name='message')
+        button.btn.btn-primary(type='submit') Send Message
+        p(style='color:red') #{error_message}
+      h2 New Message:
+      pre
+        p !{new_message}

@@ -1,0 +1,7 @@
+target/
+.idea/
+venv/
+*.bin
+*.bc
+*.s
+just-bc

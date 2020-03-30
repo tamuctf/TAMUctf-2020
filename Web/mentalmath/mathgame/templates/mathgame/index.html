@@ -1,0 +1,22 @@
+{% extends 'mathgame/base.html' %}
+
+{% block content %}
+<div class="row mt-3">
+  <div class="col-sm-12 text-center"><h1>mEnTaL mAtH</h1></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <p>I created this tool to improve my mental math abilities. Simply click play, and you will be
+    met with an unending stream of meticulously crafted (okay, randomly generated) math problems.
+    As soon as you input the correct answer, a new problem will appear (no submit button, #ajax).
+    If you want to improve, don't use pen and paper!</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <a href="{% url 'play' %}">Start Game</a>
+  </div>
+</div>
+{% endblock %}

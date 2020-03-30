@@ -1,0 +1,21 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Easybook"
+license = "MIT"
+licenselink = "https://github.com/Y4er/easybook/blob/master/LICENSE"
+description = "Easybook is a simple hugo theme."
+homepage = "http://Y4er.com/"
+tags = ['hugo','simple']
+features = ['simple']
+min_version = "0.52"
+
+[author]
+  name = "Y4er"
+  homepage = "http://Y4er.com"
+
+# If porting an existing theme
+[original]
+  name = "jekyll-theme-EasyBook"
+  homepage = "http://laobubu.net/jekyll-theme-EasyBook/"
+  repo = "https://github.com/laobubu/jekyll-theme-EasyBook"

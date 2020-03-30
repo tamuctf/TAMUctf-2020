@@ -1,0 +1,31 @@
+{{- define "content" -}}
+<div class="home">
+    <a class="rss-link" href="{{ "index.xml" | absURL }}">RSS</a>
+    <a class="rss-link" href="{{ "sitemap.xml" | absURL }}">SITEMAP</a>
+    <h1 class="page-heading">Articles</h1>
+    {{/*  content  */}}
+    <ul class="post-list">
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
+        <!--读取分页内容-->
+        {{ range $paginator.Pages }}
+        <li>
+            <h2><a href="{{ .Permalink }}">{{ title .Title | safeHTML }}</a></h2>
+            <div class="post-meta">{{ .Date.Format "Jan 02, 2006" }}</div>
+            <div class="post-excerpt">
+                {{ .Summary | safeHTML }}
+            </div>
+        </li>
+        {{ end }}
+    </ul>
+    <!-- pagination -->
+    <div class="pagination">
+        {{ with $paginator.Prev -}}
+        <a href="{{ .URL }}" class="previous">PREV</a>
+        {{- end }}
+        <span class="page_number ">{{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+        {{ with $paginator.Next -}}
+        <a href="{{ .URL }}" class="next">NEXT</a>
+        {{- end }}
+    </div>
+</div>
+{{- end -}}
